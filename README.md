@@ -131,14 +131,12 @@ See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-applica
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
 
 ##content Management System (CMS)
-
-- **WordPress with WooCommerce**: A popular choice for e-commerce sites due to its extensive plugin ecosystem and ease of use.
-- **Shopify**: A fully hosted solution that provides a wide range of e-commerce features out-of-the-box.
+WordPress with WooCommerce**: A popular choice for e-commerce sites due to its extensive plugin ecosystem and ease of use.
 
 ##E-commerce Platform**
 
-**Plugins:**
-- **WooCommerce** (for WordPress): For managing products, carts, and orders.
-- **Stripe or PayPal APIs**: For handling payments securely.
+Plugins:
+WooCommerce** (for WordPress): For managing products, carts, and orders.
+Stripe or PayPal APIs**: For handling payments securely.
 ![image](https://github.com/refurbishedWeb/backend/assets/91359766/0249eb61-7ef1-494e-8943-297c6c023be7)
 
