@@ -1,18 +1,54 @@
-const express = require('express');
+require("dotenv").config();
+
+const config = require("./config.json");
+const mongoose = require("mongoose");
+
+mongoose.connect(config.connectionString);
+
+const express = require("express");
+const cors = require("cors");
 const app = express();
 
-const userRoute = require("./routes/User");
-const productRoute = require("./routes/Product");
-const orderRoute = require("./routes/Order");
+const jwt = require("jsonwebtoken");
+const authRoutes = require('./routes/auth');
+const profileRoutes = require('./routes/profile');
 
-app.get('/api/products', (req, res) => {
-  res.json([]);
+app.use(express.json());
+app.use(cors({
+  origin: "*",
+})
+);
+app.use('/api/auth', authRoutes);
+app.use('/api/profile', profileRoutes);
+
+app.get("/", (req, res) => {
+  res.json({data: "Hello World!"});
 });
 
-app.post('/api/order', (req, res) => {
-  res.json({ success: true });
+// Create Account
+app.post("/create-account", async (req, res) => {
+  const { username, email, password } = req.body;
+
+  if (!username) {
+    return res.status(400).json({ error: true, message: "Username is required" });
+  }
+  if (!email) {
+    return res.status(400).json({ error: true, message: "Email is required" });
+  }
+  if (!password) {
+    return res.status(400).json({ error: true, message: "Password is required" });
+  }
+
+  // try {
+  //   const user = await User.create({ username, email, password });
+  //   res.json({ data: user });
+  // } catch (error) {
+  //   res.status(400).json({ error: error.message });
+  // }
 });
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
+
+module.exports = app;
