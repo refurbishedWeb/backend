@@ -10,6 +10,7 @@ const cors = require("cors");
 const app = express();
 
 const jwt = require("jsonwebtoken");
+const { authenticateToken } = require("./middleware/authenticateToken");
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
 
@@ -38,13 +39,6 @@ app.post("/create-account", async (req, res) => {
   if (!password) {
     return res.status(400).json({ error: true, message: "Password is required" });
   }
-
-  // try {
-  //   const user = await User.create({ username, email, password });
-  //   res.json({ data: user });
-  // } catch (error) {
-  //   res.status(400).json({ error: error.message });
-  // }
 });
 
 app.listen(3000, () => {

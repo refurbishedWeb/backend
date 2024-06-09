@@ -27,6 +27,12 @@ const userSchema = new Schema({
     phone: { 
         type: String 
     },
+    googleId: {
+        type: String
+    },
+    shopId: {
+        type: String
+    }
 });
 
 const User = mongoose.model('User', userSchema);
